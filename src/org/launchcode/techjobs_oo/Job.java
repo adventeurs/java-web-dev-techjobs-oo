@@ -97,10 +97,10 @@ public class Job {
     public String toString() {
         String noData = "Data not available";
         String ifName = name != null ? name : noData;
-        Object ifEmployer = employer != null ? employer : noData;
-        Object ifLocation = location != null ? location : noData;
-        Object ifPositionType = positionType != null ? positionType : noData;
-        Object ifCoreCompetency = coreCompetency != null ? coreCompetency : noData;
+        Object ifEmployer = !employer.getValue().equals("") ? employer : noData;
+        Object ifLocation = !location.getValue().equals("") ? location : noData;
+        Object ifPositionType = !positionType.getValue().equals("") ? positionType : noData;
+        Object ifCoreCompetency = !coreCompetency.getValue().equals("") ? coreCompetency : noData;
 
         return "\n" +
                 "ID: " + id  + "\n" +

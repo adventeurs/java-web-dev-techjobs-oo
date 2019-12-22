@@ -29,7 +29,7 @@ abstract class JobField {
 
     @Override
     public String toString() {
-        return "Position = " + value;
+        return value;
     }
 
     @Override
