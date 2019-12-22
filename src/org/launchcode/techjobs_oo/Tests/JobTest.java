@@ -4,8 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.launchcode.techjobs_oo.*;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class JobTest {
     Job firstJob;
@@ -32,5 +31,26 @@ public class JobTest {
         assertTrue(firstJob.getCoreCompetency() instanceof  CoreCompetency);
     }
 
+    @Test
+    public void testJobsForEquality(){
+        firstJob = new Job("Product Test", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        secondJob = new Job("Product Test", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
+        assertFalse((firstJob.equals(secondJob)));
+    }
+
+    @Test
+    public void toStringTest(){
+        String[] test = firstJob.toString().split("\\r?\\n");
+
+        assertEquals("", test[0]);
+
+        assertEquals(7, test.length);
+
+        assertTrue(test[2].contains("Data not available"));
+        assertTrue(test[3].contains("Data not available"));
+        assertTrue(test[4].contains("Data not available"));
+        assertTrue(test[5].contains("Data not available"));
+        assertTrue(test[6].contains("Data not available"));
+    }
 }

@@ -2,6 +2,7 @@ package org.launchcode.techjobs_oo;
 
 import java.util.Objects;
 
+
 public class Job {
 
     private int id;
@@ -90,5 +91,23 @@ public class Job {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        String noData = "Data not available";
+        String ifName = name != null ? name : noData;
+        Object ifEmployer = employer != null ? employer : noData;
+        Object ifLocation = location != null ? location : noData;
+        Object ifPositionType = positionType != null ? positionType : noData;
+        Object ifCoreCompetency = coreCompetency != null ? coreCompetency : noData;
+
+        return "\n" +
+                "ID: " + id  + "\n" +
+                "Name: " + ifName + "\n" +
+                "Employer: " + ifEmployer  + "\n" +
+                "Location: " + ifLocation + "\n" +
+                "Position Type: " + ifPositionType + "\n" +
+                "Core Competency: " + ifCoreCompetency + "\n";
     }
 }
